@@ -11,5 +11,5 @@ git submodule update --init --recursive
 ./configure --prefix=/usr
 
 # convert
-protoc --proto_path=protos --python_out=protobuf_pnrd_net protos/owner.proto protos/payload.proto protos/record.proto
+protoc --proto_path=protos --python_out=pnrdnet_protobuf  protos/owner.proto protos/payload.proto protos/record.proto
 ```

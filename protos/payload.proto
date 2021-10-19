@@ -39,8 +39,8 @@ message CreateRecordAction {
     
     string reader_id = 3;
     string ant_id = 4;
-    sint64 situation = 5;
-    sint64 token = 6;
+    string situation = 5;
+    string token = 6;
 }
 
 
@@ -50,8 +50,8 @@ message UpdateRecordAction {
 
     string reader_id = 2;
     string ant_id = 3;
-    sint64 situation = 4;
-    sint64 token = 5;
+    string situation = 4;
+    string token = 5;
 }
 
 

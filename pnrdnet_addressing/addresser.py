@@ -49,7 +49,7 @@ def get_address_type(address):
     infix = address[6:8]
 
     if infix == '00':
-        return AddressSpace.AGENT
+        return AddressSpace.OWNER
     if infix == '01':
         return AddressSpace.RECORD
 

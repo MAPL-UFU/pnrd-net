@@ -1,3 +1,4 @@
+import os
 import argparse
 import sys
 
@@ -5,6 +6,12 @@ from sawtooth_sdk.processor.core import TransactionProcessor
 from sawtooth_sdk.processor.log import init_console_logging
 
 from processor.handler import PnrdNetHandler
+
+
+TOP_DIR = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
+sys.path.insert(0, os.path.join(TOP_DIR, 'pnrdnet_addressing'))
+sys.path.insert(0, os.path.join(TOP_DIR, 'processor'))
+sys.path.insert(0, os.path.join(TOP_DIR, 'pnrdnet_protobuf'))
 
 
 def parse_args(args):
@@ -36,6 +43,7 @@ def main(args=None):
         processor = TransactionProcessor(url=opts.connect)
         handler = PnrdNetHandler()
         processor.add_handler(handler)
+        print("Startou!")
         processor.start()
     except KeyboardInterrupt:
         pass
@@ -44,3 +52,7 @@ def main(args=None):
     finally:
         if processor is not None:
             processor.stop()
+
+
+if __name__ == '__main__':
+    main()

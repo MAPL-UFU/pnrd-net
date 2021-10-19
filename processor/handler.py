@@ -36,22 +36,22 @@ class PnrdNetHandler(TransactionHandler):
 
         _validate_timestamp(payload.timestamp)
 
-        if payload.action == payload_pb2.SimpleSupplyPayload.CREATE_OWNER:
+        if payload.action == payload_pb2.PnrdPayload.CREATE_OWNER:
             _create_owner(
                 state=state,
                 public_key=header.signer_public_key,
                 payload=payload)
-        elif payload.action == payload_pb2.SimpleSupplyPayload.CREATE_RECORD:
+        elif payload.action == payload_pb2.PnrdPayload.CREATE_RECORD:
             _create_record(
                 state=state,
                 public_key=header.signer_public_key,
                 payload=payload)
-        elif payload.action == payload_pb2.SimpleSupplyPayload.TRANSFER_RECORD:
+        elif payload.action == payload_pb2.PnrdPayload.TRANSFER_RECORD:
             _transfer_record(
                 state=state,
                 public_key=header.signer_public_key,
                 payload=payload)
-        elif payload.action == payload_pb2.SimpleSupplyPayload.UPDATE_RECORD:
+        elif payload.action == payload_pb2.PnrdPayload.UPDATE_RECORD:
             _update_record(
                 state=state,
                 public_key=header.signer_public_key,
@@ -112,7 +112,7 @@ def _transfer_record(state, public_key, payload):
             'Transaction signer is not the owner of the record')
 
     state.transfer_record(
-        receiving_agent=payload.data.receiving_agent,
+        receiving_owner=payload.data.receiving_owner,
         record_id=payload.data.record_id,
         timestamp=payload.timestamp)
 
@@ -141,7 +141,7 @@ def _validate_record_owner(signer_public_key, record):
     """Validates that the public key of the signer is the latest (i.e.
     current) owner of the record
     """
-    latest_owner = max(record.owners, key=lambda obj: obj.timestamp).agent_id
+    latest_owner = max(record.owners, key=lambda obj: obj.timestamp).owner_id
     return latest_owner == signer_public_key
 
 

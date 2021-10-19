@@ -21,11 +21,12 @@ import sys
 import logging
 import argparse
 from flask import Flask
-from routes.auth import auth_routes
-from routes.owner import owner_routes
-from config import CoreConfig
-from utils.responses import response_with
-import utils.responses as resp
+from pnrdnet_api.routes.core import core_routes
+from pnrdnet_api.routes.owner import owner_routes
+from pnrdnet_api.routes.record import record_routes
+from pnrdnet_api.config import CoreConfig
+from pnrdnet_api.utils.responses import response_with
+import pnrdnet_api.utils.responses as resp
 from dotenv import load_dotenv
 
 
@@ -77,8 +78,9 @@ def create_app(config):
     app.config.from_object(config)
 
     # BLUEPRINTS
-    app.register_blueprint(auth_routes, url_prefix="/auth")
+    app.register_blueprint(core_routes, url_prefix="/core")
     app.register_blueprint(owner_routes, url_prefix="/owner")
+    app.register_blueprint(record_routes, url_prefix="/record")
     # START GLOBAL HTTP CONFIGURATIONS
 
     @app.after_request

@@ -14,7 +14,7 @@ class Config(object):
 
 class CoreConfig(Config):
     ENV = "ENV-BETA"
-    DEBUG = False
+    DEBUG = True
     JSON_SORT_KEYS = False
 
 

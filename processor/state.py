@@ -107,7 +107,7 @@ class PnrdNetState(object):
             record_id=record_id,
             tag_id=tag_id,
             owners=[owner],
-            histories=[history])
+            history=[history])
         container = record_pb2.RecordContainer()
         state_entries = self._context.get_state(
             addresses=[address], timeout=self._timeout)
@@ -143,7 +143,6 @@ class PnrdNetState(object):
                       ant_id,
                       situation,
                       token,
-                      tag_id,
                       record_id,
                       timestamp):
         history = record_pb2.Record.History(
@@ -160,7 +159,7 @@ class PnrdNetState(object):
             container.ParseFromString(state_entries[0].data)
             for record in container.entries:
                 if record.record_id == record_id:
-                    record.histories.extend([history])
+                    record.history.extend([history])
         data = container.SerializeToString()
         updated_state = {}
         updated_state[address] = data

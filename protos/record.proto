@@ -14,8 +14,8 @@ message Record {
         // Coordinates are expected to be in millionths of a degree
         string reader_id = 1;
         string ant_id = 2;
-        sint64 situation = 3;
-        sint64 token = 4;
+        string situation = 3;
+        string token = 4;
 
         // Approximately when the location was updated, as a Unix UTC timestamp
         uint64 timestamp = 5;
@@ -28,7 +28,7 @@ message Record {
 
     // Ordered oldest to newest by timestamp
     repeated Owner owners = 3;
-    repeated History histories = 4;
+    repeated History history = 4;
 }
 
 
