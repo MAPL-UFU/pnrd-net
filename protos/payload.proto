@@ -1,0 +1,64 @@
+syntax = "proto3";
+
+
+message PnrdPayload{
+    enum Action {
+        CREATE_OWNER = 0;
+        CREATE_RECORD = 1;
+        UPDATE_RECORD = 2;
+        TRANSFER_RECORD = 3;
+    }
+
+    // Whether the payload contains a create reader, create record,
+    // update record, or transfer record action
+    Action action = 1;
+
+    // The transaction handler will read from just one of these fields
+    // according to the action
+    CreateOwnerAction create_owner = 2;
+    CreateRecordAction create_record = 3;
+    UpdateRecordAction update_record = 4;
+    TransferRecordAction transfer_record = 5;
+
+    // Approximately when transaction was submitted, as a Unix UTC timestamp
+    uint64 timestamp = 6;
+}
+
+
+message CreateOwnerAction {
+    // A human-readable name identifying the new reader
+    string name = 1;
+}
+
+
+message CreateRecordAction {
+    // The user-defined natural key which identifies the object in the
+    // real world (for example a serial number)
+    string record_id = 1;
+    string tag_id = 2;
+    
+    string reader_id = 3;
+    string ant_id = 4;
+    sint64 situation = 5;
+    sint64 token = 6;
+}
+
+
+message UpdateRecordAction {
+    // The id of the record being updated
+    string record_id = 1;
+
+    string reader_id = 2;
+    string ant_id = 3;
+    sint64 situation = 4;
+    sint64 token = 5;
+}
+
+
+message TransferRecordAction {
+    // The id of the record for the ownership transfer
+    string record_id = 1;
+
+    // The public key of the owner to which the record will be transferred
+    string receiving_owner = 2;
+}

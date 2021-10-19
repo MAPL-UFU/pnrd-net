@@ -1,0 +1,6 @@
+{
+  "python.pythonPath": "pnEnv/bin/python",
+  "python.analysis.diagnosticSeverityOverrides": {
+    "reportUndefinedVariable": "error"
+  },
+}

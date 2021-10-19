@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+
+message Record {
+    message Owner {
+        // Public key of the owner who owns the record
+        string owner_id = 1;
+
+        // Approximately when the owner was updated, as a Unix UTC timestamp
+        uint64 timestamp = 2;
+    }
+
+    message History {
+        // Coordinates are expected to be in millionths of a degree
+        string reader_id = 1;
+        string ant_id = 2;
+        sint64 situation = 3;
+        sint64 token = 4;
+
+        // Approximately when the location was updated, as a Unix UTC timestamp
+        uint64 timestamp = 5;
+    }
+
+    // The user-defined natural key which identifies the object in the
+    // real world (for example a serial number)
+    string record_id = 1;
+    string tag_id = 2;
+
+    // Ordered oldest to newest by timestamp
+    repeated Owner owners = 3;
+    repeated History histories = 4;
+}
+
+
+message RecordContainer {
+    repeated Record entries = 1;
+}
