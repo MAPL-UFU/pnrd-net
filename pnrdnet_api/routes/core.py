@@ -29,9 +29,7 @@ def get_owner_details():
     try:
         print(NAMESPACE)
         dispatch = Dispatcher()
-
         net_data, net_address = dispatch.get_network_data()
-
         return response_with(
             resp.SUCCESS_201,
             value={'address': net_address, 'data': net_data}

@@ -12,8 +12,9 @@ from sawtooth_signing import create_context
 from sawtooth_signing import CryptoFactory
 from sawtooth_signing import secp256k1
 
-from pnrdnet_addressing.addresser import NAMESPACE, get_owner_address, get_record_address
+from pnrdnet_addressing.addresser import NAMESPACE, AddressSpace, get_owner_address, get_record_address
 from pnrdnet_api.decoding import deserialize_data
+from pnrdnet_protobuf.owner_pb2 import _OWNER
 
 from .transaction_creation import make_create_owner_transaction
 from .transaction_creation import make_create_record_transaction
@@ -83,8 +84,12 @@ class Dispatcher(object):
         for n in encoded_entries:
             decode_data = base64.b64decode(n["data"])
             data_type, resources = deserialize_data(n["address"], decode_data)
-            deserialize_data_batch.append(
-                {"type": data_type, "resources": resources})
+            if data_type is AddressSpace.RECORD:
+                deserialize_data_batch.append(
+                    {"type": 'RECORD', "record_id": resources[0]['record_id']})
+            elif data_type is AddressSpace.OWNER:
+                deserialize_data_batch.append(
+                    {"type": 'OWNER', "name": resources[0]['name']})
         return deserialize_data_batch
 
     def _get_blockchain_data(self, address, result):
@@ -163,6 +168,9 @@ class Dispatcher(object):
                                        reader_id,
                                        ant_id,
                                        situation,
+                                       places,
+                                       transitions,
+                                       incidenceMatrix,
                                        token,
                                        record_id,
                                        tag_id,
@@ -175,6 +183,9 @@ class Dispatcher(object):
             reader_id=reader_id,
             ant_id=ant_id,
             situation=situation,
+            places=places,
+            transitions=transitions,
+            incidenceMatrix=incidenceMatrix,
             token=token,
             record_id=record_id,
             tag_id=tag_id,
@@ -206,6 +217,9 @@ class Dispatcher(object):
                                        reader_id,
                                        ant_id,
                                        situation,
+                                       places,
+                                       transitions,
+                                       incidenceMatrix,
                                        token,
                                        record_id,
                                        timestamp):
@@ -217,6 +231,9 @@ class Dispatcher(object):
             reader_id=reader_id,
             ant_id=ant_id,
             situation=situation,
+            places=places,
+            transitions=transitions,
+            incidenceMatrix=incidenceMatrix,
             token=token,
             record_id=record_id,
             timestamp=timestamp)

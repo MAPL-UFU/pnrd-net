@@ -37,7 +37,6 @@ def _convert_proto_to_dict(proto):
     for field in proto.DESCRIPTOR.fields:
         key = field.name
         value = getattr(proto, key)
-
         if field.type == field.TYPE_MESSAGE:
             if field.label == field.LABEL_REPEATED:
                 result[key] = [_convert_proto_to_dict(p) for p in value]

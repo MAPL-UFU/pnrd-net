@@ -1,8 +1,8 @@
 from dotenv import load_dotenv
 import os
 
-DEFAULT_URL_VALIDATOR = 'http://127.0.0.1:8008'
-DEFAULT_URL_SAWTOOH_REST_API = 'http://127.0.0.1:8008'
+DEFAULT_URL_VALIDATOR = 'https://n1.pnrd.net:8008'
+DEFAULT_URL_SAWTOOH_REST_API = 'https://n1.pnrd.net:8008'
 AES_KEY = 'ffffffffffffffffffffffffffffffff'
 APP_SECRET_KEY = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'
 

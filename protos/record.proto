@@ -15,10 +15,12 @@ message Record {
         string reader_id = 1;
         string ant_id = 2;
         string situation = 3;
-        string token = 4;
-
+        int32 places = 4;
+        int32 transitions = 5;
+        repeated sint32 token = 6 [packed=true];
+        repeated sint32 incidenceMatrix = 7 [packed=true];
         // Approximately when the location was updated, as a Unix UTC timestamp
-        uint64 timestamp = 5;
+        uint64 timestamp = 8;
     }
 
     // The user-defined natural key which identifies the object in the

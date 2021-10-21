@@ -91,6 +91,9 @@ def _create_record(state, public_key, payload):
         reader_id=payload.data.reader_id,
         ant_id=payload.data.ant_id,
         situation=payload.data.situation,
+        places=payload.data.places,
+        transitions=payload.data.transitions,
+        incidenceMatrix=payload.data.incidenceMatrix,
         token=payload.data.token,
         timestamp=payload.timestamp)
 
@@ -133,6 +136,9 @@ def _update_record(state, public_key, payload):
         reader_id=payload.data.reader_id,
         ant_id=payload.data.ant_id,
         situation=payload.data.situation,
+        places=payload.data.places,
+        transitions=payload.data.transitions,
+        incidenceMatrix=payload.data.incidenceMatrix,
         token=payload.data.token,
         timestamp=payload.timestamp)
 

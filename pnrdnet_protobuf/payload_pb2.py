@@ -14,7 +14,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\rpayload.proto\"\xce\x02\n\x0bPnrdPayload\x12#\n\x06\x61\x63tion\x18\x01 \x01(\x0e\x32\x13.PnrdPayload.Action\x12(\n\x0c\x63reate_owner\x18\x02 \x01(\x0b\x32\x12.CreateOwnerAction\x12*\n\rcreate_record\x18\x03 \x01(\x0b\x32\x13.CreateRecordAction\x12*\n\rupdate_record\x18\x04 \x01(\x0b\x32\x13.UpdateRecordAction\x12.\n\x0ftransfer_record\x18\x05 \x01(\x0b\x32\x15.TransferRecordAction\x12\x11\n\ttimestamp\x18\x06 \x01(\x04\"U\n\x06\x41\x63tion\x12\x10\n\x0c\x43REATE_OWNER\x10\x00\x12\x11\n\rCREATE_RECORD\x10\x01\x12\x11\n\rUPDATE_RECORD\x10\x02\x12\x13\n\x0fTRANSFER_RECORD\x10\x03\"!\n\x11\x43reateOwnerAction\x12\x0c\n\x04name\x18\x01 \x01(\t\"|\n\x12\x43reateRecordAction\x12\x11\n\trecord_id\x18\x01 \x01(\t\x12\x0e\n\x06tag_id\x18\x02 \x01(\t\x12\x11\n\treader_id\x18\x03 \x01(\t\x12\x0e\n\x06\x61nt_id\x18\x04 \x01(\t\x12\x11\n\tsituation\x18\x05 \x01(\t\x12\r\n\x05token\x18\x06 \x01(\t\"l\n\x12UpdateRecordAction\x12\x11\n\trecord_id\x18\x01 \x01(\t\x12\x11\n\treader_id\x18\x02 \x01(\t\x12\x0e\n\x06\x61nt_id\x18\x03 \x01(\t\x12\x11\n\tsituation\x18\x04 \x01(\t\x12\r\n\x05token\x18\x05 \x01(\t\"B\n\x14TransferRecordAction\x12\x11\n\trecord_id\x18\x01 \x01(\t\x12\x17\n\x0freceiving_owner\x18\x02 \x01(\tb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\rpayload.proto\"\xce\x02\n\x0bPnrdPayload\x12#\n\x06\x61\x63tion\x18\x01 \x01(\x0e\x32\x13.PnrdPayload.Action\x12(\n\x0c\x63reate_owner\x18\x02 \x01(\x0b\x32\x12.CreateOwnerAction\x12*\n\rcreate_record\x18\x03 \x01(\x0b\x32\x13.CreateRecordAction\x12*\n\rupdate_record\x18\x04 \x01(\x0b\x32\x13.UpdateRecordAction\x12.\n\x0ftransfer_record\x18\x05 \x01(\x0b\x32\x15.TransferRecordAction\x12\x11\n\ttimestamp\x18\x06 \x01(\x04\"U\n\x06\x41\x63tion\x12\x10\n\x0c\x43REATE_OWNER\x10\x00\x12\x11\n\rCREATE_RECORD\x10\x01\x12\x11\n\rUPDATE_RECORD\x10\x02\x12\x13\n\x0fTRANSFER_RECORD\x10\x03\"!\n\x11\x43reateOwnerAction\x12\x0c\n\x04name\x18\x01 \x01(\t\"\xc2\x01\n\x12\x43reateRecordAction\x12\x11\n\trecord_id\x18\x01 \x01(\t\x12\x0e\n\x06tag_id\x18\x02 \x01(\t\x12\x11\n\treader_id\x18\x03 \x01(\t\x12\x0e\n\x06\x61nt_id\x18\x04 \x01(\t\x12\x11\n\tsituation\x18\x05 \x01(\t\x12\x0e\n\x06places\x18\x06 \x01(\x05\x12\x13\n\x0btransitions\x18\x07 \x01(\x05\x12\x11\n\x05token\x18\x08 \x03(\x11\x42\x02\x10\x01\x12\x1b\n\x0fincidenceMatrix\x18\t \x03(\x11\x42\x02\x10\x01\"\xb2\x01\n\x12UpdateRecordAction\x12\x11\n\trecord_id\x18\x01 \x01(\t\x12\x11\n\treader_id\x18\x02 \x01(\t\x12\x0e\n\x06\x61nt_id\x18\x03 \x01(\t\x12\x11\n\tsituation\x18\x04 \x01(\t\x12\x0e\n\x06places\x18\x05 \x01(\x05\x12\x13\n\x0btransitions\x18\x06 \x01(\x05\x12\x11\n\x05token\x18\x07 \x03(\x11\x42\x02\x10\x01\x12\x1b\n\x0fincidenceMatrix\x18\x08 \x03(\x11\x42\x02\x10\x01\"B\n\x14TransferRecordAction\x12\x11\n\trecord_id\x18\x01 \x01(\t\x12\x17\n\x0freceiving_owner\x18\x02 \x01(\tb\x06proto3')
 
 
 
@@ -62,16 +62,24 @@ _sym_db.RegisterMessage(TransferRecordAction)
 if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
+  _CREATERECORDACTION.fields_by_name['token']._options = None
+  _CREATERECORDACTION.fields_by_name['token']._serialized_options = b'\020\001'
+  _CREATERECORDACTION.fields_by_name['incidenceMatrix']._options = None
+  _CREATERECORDACTION.fields_by_name['incidenceMatrix']._serialized_options = b'\020\001'
+  _UPDATERECORDACTION.fields_by_name['token']._options = None
+  _UPDATERECORDACTION.fields_by_name['token']._serialized_options = b'\020\001'
+  _UPDATERECORDACTION.fields_by_name['incidenceMatrix']._options = None
+  _UPDATERECORDACTION.fields_by_name['incidenceMatrix']._serialized_options = b'\020\001'
   _PNRDPAYLOAD._serialized_start=18
   _PNRDPAYLOAD._serialized_end=352
   _PNRDPAYLOAD_ACTION._serialized_start=267
   _PNRDPAYLOAD_ACTION._serialized_end=352
   _CREATEOWNERACTION._serialized_start=354
   _CREATEOWNERACTION._serialized_end=387
-  _CREATERECORDACTION._serialized_start=389
-  _CREATERECORDACTION._serialized_end=513
-  _UPDATERECORDACTION._serialized_start=515
-  _UPDATERECORDACTION._serialized_end=623
-  _TRANSFERRECORDACTION._serialized_start=625
-  _TRANSFERRECORDACTION._serialized_end=691
+  _CREATERECORDACTION._serialized_start=390
+  _CREATERECORDACTION._serialized_end=584
+  _UPDATERECORDACTION._serialized_start=587
+  _UPDATERECORDACTION._serialized_end=765
+  _TRANSFERRECORDACTION._serialized_start=767
+  _TRANSFERRECORDACTION._serialized_end=833
 # @@protoc_insertion_point(module_scope)

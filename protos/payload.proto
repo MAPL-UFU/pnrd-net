@@ -40,7 +40,10 @@ message CreateRecordAction {
     string reader_id = 3;
     string ant_id = 4;
     string situation = 5;
-    string token = 6;
+    int32 places = 6;
+    int32 transitions = 7;
+    repeated sint32 token = 8 [packed=true];
+    repeated sint32 incidenceMatrix = 9 [packed=true];
 }
 
 
@@ -51,7 +54,11 @@ message UpdateRecordAction {
     string reader_id = 2;
     string ant_id = 3;
     string situation = 4;
-    string token = 5;
+    int32 places = 5;
+    int32 transitions = 6;
+    repeated sint32 token = 7 [packed=true];
+    repeated sint32 incidenceMatrix = 8 [packed=true];
+    
 }
 
 

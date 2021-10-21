@@ -80,6 +80,9 @@ class PnrdNetState(object):
                    reader_id,
                    ant_id,
                    situation,
+                   places,
+                   transitions,
+                   incidenceMatrix,
                    token,
                    record_id,
                    tag_id,
@@ -101,6 +104,9 @@ class PnrdNetState(object):
             reader_id=reader_id,
             ant_id=ant_id,
             situation=situation,
+            places=places,
+            transitions=transitions,
+            incidenceMatrix=incidenceMatrix,
             token=token,
             timestamp=timestamp)
         record = record_pb2.Record(
@@ -142,6 +148,9 @@ class PnrdNetState(object):
                       reader_id,
                       ant_id,
                       situation,
+                      places,
+                      transitions,
+                      incidenceMatrix,
                       token,
                       record_id,
                       timestamp):
@@ -149,6 +158,9 @@ class PnrdNetState(object):
             reader_id=reader_id,
             ant_id=ant_id,
             situation=situation,
+            places=places,
+            transitions=transitions,
+            incidenceMatrix=incidenceMatrix,
             token=token,
             timestamp=timestamp)
         address = addresser.get_record_address(record_id)

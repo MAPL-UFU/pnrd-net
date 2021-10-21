@@ -14,7 +14,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0crecord.proto\"\xfd\x01\n\x06Record\x12\x11\n\trecord_id\x18\x01 \x01(\t\x12\x0e\n\x06tag_id\x18\x02 \x01(\t\x12\x1d\n\x06owners\x18\x03 \x03(\x0b\x32\r.Record.Owner\x12 \n\x07history\x18\x04 \x03(\x0b\x32\x0f.Record.History\x1a,\n\x05Owner\x12\x10\n\x08owner_id\x18\x01 \x01(\t\x12\x11\n\ttimestamp\x18\x02 \x01(\x04\x1a\x61\n\x07History\x12\x11\n\treader_id\x18\x01 \x01(\t\x12\x0e\n\x06\x61nt_id\x18\x02 \x01(\t\x12\x11\n\tsituation\x18\x03 \x01(\t\x12\r\n\x05token\x18\x04 \x01(\t\x12\x11\n\ttimestamp\x18\x05 \x01(\x04\"+\n\x0fRecordContainer\x12\x18\n\x07\x65ntries\x18\x01 \x03(\x0b\x32\x07.Recordb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0crecord.proto\"\xc4\x02\n\x06Record\x12\x11\n\trecord_id\x18\x01 \x01(\t\x12\x0e\n\x06tag_id\x18\x02 \x01(\t\x12\x1d\n\x06owners\x18\x03 \x03(\x0b\x32\r.Record.Owner\x12 \n\x07history\x18\x04 \x03(\x0b\x32\x0f.Record.History\x1a,\n\x05Owner\x12\x10\n\x08owner_id\x18\x01 \x01(\t\x12\x11\n\ttimestamp\x18\x02 \x01(\x04\x1a\xa7\x01\n\x07History\x12\x11\n\treader_id\x18\x01 \x01(\t\x12\x0e\n\x06\x61nt_id\x18\x02 \x01(\t\x12\x11\n\tsituation\x18\x03 \x01(\t\x12\x0e\n\x06places\x18\x04 \x01(\x05\x12\x13\n\x0btransitions\x18\x05 \x01(\x05\x12\x11\n\x05token\x18\x06 \x03(\x11\x42\x02\x10\x01\x12\x1b\n\x0fincidenceMatrix\x18\x07 \x03(\x11\x42\x02\x10\x01\x12\x11\n\ttimestamp\x18\x08 \x01(\x04\"+\n\x0fRecordContainer\x12\x18\n\x07\x65ntries\x18\x01 \x03(\x0b\x32\x07.Recordb\x06proto3')
 
 
 
@@ -55,12 +55,16 @@ _sym_db.RegisterMessage(RecordContainer)
 if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
+  _RECORD_HISTORY.fields_by_name['token']._options = None
+  _RECORD_HISTORY.fields_by_name['token']._serialized_options = b'\020\001'
+  _RECORD_HISTORY.fields_by_name['incidenceMatrix']._options = None
+  _RECORD_HISTORY.fields_by_name['incidenceMatrix']._serialized_options = b'\020\001'
   _RECORD._serialized_start=17
-  _RECORD._serialized_end=270
+  _RECORD._serialized_end=341
   _RECORD_OWNER._serialized_start=127
   _RECORD_OWNER._serialized_end=171
-  _RECORD_HISTORY._serialized_start=173
-  _RECORD_HISTORY._serialized_end=270
-  _RECORDCONTAINER._serialized_start=272
-  _RECORDCONTAINER._serialized_end=315
+  _RECORD_HISTORY._serialized_start=174
+  _RECORD_HISTORY._serialized_end=341
+  _RECORDCONTAINER._serialized_start=343
+  _RECORDCONTAINER._serialized_end=386
 # @@protoc_insertion_point(module_scope)
